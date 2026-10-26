@@ -1,29 +1,20 @@
-/* =========================================================
-   СТИЛИ САЙТА «ИНФОРМАТИКА»
-   Идея: «терминальный» технологичный стиль — моноширинные подписи,
-   карточки с тонкой рамкой, мягкое свечение. Фон тёмно-синий,
-   но светлее, чем чёрный.
-   ========================================================= */
-
-/* ---------- 1. ПЕРЕМЕННЫЕ (цвета и размеры в одном месте) ---------- */
 :root {
-  --bg:        #16203a;   /* основной фон (тёмно-синий, не чёрный) */
-  --bg-2:      #1d2a4a;   /* чуть светлее — для градиента */
-  --card:      rgba(255, 255, 255, 0.05);   /* фон карточек */
+  --bg:        #16203a;  
+  --bg-2:      #1d2a4a;   
+  --card:      rgba(255, 255, 255, 0.05);   
   --card-hover:rgba(255, 255, 255, 0.08);
-  --line:      rgba(255, 255, 255, 0.12);   /* цвет тонких рамок */
-  --text:      #e8edf8;   /* основной текст */
-  --muted:     #a3b0cf;   /* второстепенный текст */
-  --accent:    #5eead4;   /* бирюзовый акцент */
-  --accent-2:  #8b9cff;   /* фиолетово-синий акцент */
-  --danger:    #ff8a8a;   /* ошибки */
-  --ok:        #7ee787;   /* правильный ответ */
+  --line:      rgba(255, 255, 255, 0.12);   
+  --text:      #e8edf8;   
+  --muted:     #a3b0cf;   
+  --accent:    #5eead4;   
+  --accent-2:  #8b9cff;   
+  --danger:    #ff8a8a;   
+  --ok:        #7ee787;   
   --radius:    16px;
   --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
-/* ---------- 2. БАЗА ---------- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
@@ -32,7 +23,7 @@ body {
   font-family: var(--sans);
   color: var(--text);
   line-height: 1.6;
-  /* Градиентный фон: от светлее-синего сверху к основному цвету */
+
   background:
     radial-gradient(900px 500px at 80% -10%, rgba(139, 156, 255, 0.25), transparent 60%),
     radial-gradient(700px 500px at 0% 30%, rgba(94, 234, 212, 0.12), transparent 60%),
@@ -43,7 +34,6 @@ body {
 
 a { color: inherit; text-decoration: none; }
 
-/* Canvas с частицами — лежит под всем контентом и не мешает кликам */
 #particles {
   position: fixed;
   inset: 0;
@@ -53,12 +43,10 @@ a { color: inherit; text-decoration: none; }
   pointer-events: none;
 }
 
-/* Весь контент поднимаем над частицами */
 .header, main, .footer { position: relative; z-index: 1; }
 
-/* ---------- 3. ШАПКА ---------- */
 .header {
-  position: sticky;           /* прилипает к верху при прокрутке */
+  position: sticky;           
   top: 0;
   z-index: 10;
   display: flex;
@@ -66,7 +54,7 @@ a { color: inherit; text-decoration: none; }
   justify-content: space-between;
   padding: 14px 5vw;
   background: rgba(22, 32, 58, 0.75);
-  backdrop-filter: blur(12px);        /* размытие фона под шапкой */
+  backdrop-filter: blur(12px);       
   border-bottom: 1px solid var(--line);
 }
 
@@ -83,16 +71,13 @@ a { color: inherit; text-decoration: none; }
 }
 .nav a:hover, .nav a.active { color: var(--accent); }
 
-/* Бургер скрыт на компьютере */
 .burger { display: none; background: none; border: 0; cursor: pointer; width: 34px; height: 34px; }
 .burger span { display: block; height: 2px; background: var(--text); margin: 6px 4px; border-radius: 2px; transition: 0.3s; }
 
-/* ---------- 4. ОБЩИЕ ЭЛЕМЕНТЫ ---------- */
 main { max-width: 1100px; margin: 0 auto; padding: 0 5vw; }
 
 .section { padding: 80px 0 20px; }
 
-/* Моноширинный «тег» над заголовками, как на референсе: 01 · SECTION */
 .tag {
   font-family: var(--mono);
   font-size: 0.78rem;
@@ -114,7 +99,6 @@ h3 { font-size: 1.1rem; margin-bottom: 8px; }
 
 .sub { color: var(--muted); max-width: 680px; margin: 12px 0 32px; }
 
-/* Кнопки */
 .buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 .buttons.small { margin-top: 18px; }
 .btn {
@@ -138,7 +122,6 @@ h3 { font-size: 1.1rem; margin-bottom: 8px; }
 }
 .btn.primary:hover { box-shadow: 0 10px 36px rgba(139, 156, 255, 0.4); }
 
-/* ---------- 5. ГЛАВНЫЙ ЭКРАН ---------- */
 .hero { padding: 90px 0 40px; }
 .lead { color: var(--muted); font-size: 1.1rem; max-width: 620px; margin-top: 20px; }
 
@@ -157,7 +140,6 @@ h3 { font-size: 1.1rem; margin-bottom: 8px; }
 .facts b { display: block; font-family: var(--mono); font-size: 1.4rem; color: var(--accent); }
 .facts span { font-size: 0.85rem; color: var(--muted); }
 
-/* ---------- 6. КАРТОЧКИ ---------- */
 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .card {
   position: relative;
@@ -177,10 +159,9 @@ h3 { font-size: 1.1rem; margin-bottom: 8px; }
 .list li::before { content: "›"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
 .list b { color: var(--text); }
 
-/* ---------- 7. ТАЙМЛАЙН (история) ---------- */
 .timeline { border-left: 2px solid var(--line); margin-left: 8px; }
 .tl-item { position: relative; padding: 0 0 28px 28px; }
-/* Кружок на линии */
+
 .tl-item::before {
   content: "";
   position: absolute;
@@ -193,7 +174,6 @@ h3 { font-size: 1.1rem; margin-bottom: 8px; }
 .year { font-family: var(--mono); font-size: 0.8rem; color: var(--accent-2); }
 .tl-item p { color: var(--muted); max-width: 600px; }
 
-/* ---------- 8. ПАЙПЛАЙН (схема компьютера) ---------- */
 .pipeline {
   display: flex;
   align-items: stretch;
@@ -217,14 +197,12 @@ h3 { font-size: 1.1rem; margin-bottom: 8px; }
 .pipe-step.active { border-color: var(--accent); box-shadow: 0 0 24px rgba(94, 234, 212, 0.2); color: var(--accent); }
 .pipe-arrow { align-self: center; font-size: 1.6rem; color: var(--accent-2); }
 
-/* ---------- 9. БЛОК С КОДОМ ---------- */
 .code-block { margin-top: 24px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: rgba(10, 16, 34, 0.55); }
 .code-head { padding: 10px 18px; font-family: var(--mono); font-size: 0.75rem; color: var(--muted); border-bottom: 1px solid var(--line); }
 .code-block pre { padding: 18px; overflow-x: auto; font-family: var(--mono); font-size: 0.88rem; line-height: 1.7; }
-.code-block .c { color: #6b7aa3; }   /* комментарии */
-.code-block .k { color: var(--accent-2); }   /* ключевые слова */
+.code-block .c { color: #6b7aa3; }   
+.code-block .k { color: var(--accent-2); }  
 
-/* ---------- 10. КАЛЬКУЛЯТОР ---------- */
 .calc {
   margin-top: 28px;
   padding: 24px;
@@ -279,7 +257,6 @@ select option { background: var(--bg); }
 
 .error { min-height: 22px; margin-top: 8px; color: var(--danger); font-size: 0.88rem; }
 
-/* Плитки с результатами */
 .results { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 10px; }
 .res { padding: 14px; border-radius: 12px; border: 1px solid var(--line); background: rgba(10, 16, 34, 0.4); overflow: hidden; }
 .res.wide { grid-column: span 2; }
@@ -292,7 +269,6 @@ select option { background: var(--bg); }
 .steps li.muted { color: var(--muted); list-style: none; margin-left: -22px; }
 .steps li.final { color: var(--accent); margin-top: 6px; }
 
-/* 8 битов */
 .bits { display: flex; gap: 10px; margin: 6px 0 18px; flex-wrap: wrap; }
 .bit { text-align: center; }
 .bit button {
@@ -308,7 +284,6 @@ select option { background: var(--bg); }
 .bit button.on { color: #0d1730; background: var(--accent); border-color: var(--accent); box-shadow: 0 0 20px rgba(94, 234, 212, 0.45); }
 .bit small { display: block; margin-top: 6px; font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
 
-/* ---------- 11. ТЕСТ ---------- */
 .quiz { padding: 28px; border: 1px solid var(--line); border-radius: 20px; background: var(--card); max-width: 760px; }
 .quiz-top { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
 .bar { flex: 1; height: 6px; border-radius: 6px; background: var(--line); overflow: hidden; }
@@ -333,19 +308,15 @@ select option { background: var(--bg); }
 .explain { min-height: 24px; margin: 16px 0; color: var(--muted); font-size: 0.92rem; }
 .score { font-size: 3rem; font-weight: 800; }
 
-/* ---------- 12. ПОДВАЛ ---------- */
 .footer { margin-top: 100px; padding: 40px 5vw; text-align: center; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
 .footer .logo { color: var(--text); margin-bottom: 6px; }
 .footer a { display: inline-block; margin-top: 10px; font-family: var(--mono); color: var(--accent); }
 .footer .author { margin-top: 12px; font-family: var(--mono); font-size: 0.95rem; }
 .footer .author b { color: var(--accent); font-weight: 700; }
 
-/* ---------- 13. АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ ПРОКРУТКЕ ---------- */
-/* Класс .reveal ставим в HTML, а .visible добавляет script.js */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s, transform 0.7s; }
 .reveal.visible { opacity: 1; transform: none; }
 
-/* ---------- 14. АДАПТИВ (планшеты и телефоны) ---------- */
 @media (max-width: 900px) {
   .cards { grid-template-columns: repeat(2, 1fr); }
   .facts { grid-template-columns: repeat(2, 1fr); }
@@ -361,7 +332,7 @@ select option { background: var(--bg); }
     gap: 0;
     background: rgba(22, 32, 58, 0.97);
     border-bottom: 1px solid var(--line);
-    max-height: 0;            /* меню свёрнуто */
+    max-height: 0;           
     overflow: hidden;
     transition: max-height 0.35s;
   }
@@ -380,7 +351,6 @@ select option { background: var(--bg); }
   .pipe-arrow { transform: rotate(90deg); width: 100%; text-align: center; }
 }
 
-/* Если у человека в системе включено «уменьшить анимацию» — отключаем лишнее */
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   .reveal { opacity: 1; transform: none; }
