@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Информатика — мир цифр и алгоритмов</title>
+  <meta name="description" content="Учебный сайт по информатике: история, устройство компьютера, алгоритмы, двоичная система с калькулятором, безопасность и тест.">
+
+  <!-- Шрифты с Google Fonts: Inter (основной текст) и JetBrains Mono (технические подписи) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Подключаем наши стили -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Фон: canvas, на котором script.js рисует маленькие частицы -->
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <!-- ===================== ШАПКА С МЕНЮ ===================== -->
+  <header class="header">
+    <a class="logo" href="#top">Home<span></span></a>
+
+    <!-- Кнопка-бургер: видна только на телефоне -->
+    <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="nav">
+      <a href="#history">01 · ИСТОРИЯ</a>
+      <a href="#computer">02 · КОМПЬЮТЕР</a>
+      <a href="#algorithms">03 · АЛГОРИТМЫ</a>
+      <a href="#binary">04 · ДВОИЧНАЯ</a>
+      <a href="#security">05 · БЕЗОПАСНОСТЬ</a>
+      <a href="#quiz">06 · ТЕСТ</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ===================== ГЛАВНЫЙ ЭКРАН ===================== -->
+    <section class="hero">
+      <p class="tag">Информатика · Проект</p>
+      <h1>Информатика —<br><span class="grad">наука об информации</span></h1>
+      <p class="lead">
+        Как устроены компьютеры, зачем нужны алгоритмы и почему всё в цифровом мире
+        состоит из нулей и единиц. Листай вниз и пробуй всё сам: внутри есть
+        калькулятор двоичных чисел и тест.
+      </p>
+      <div class="buttons">
+        <a class="btn primary" href="#binary">Открыть калькулятор →</a>
+        <a class="btn" href="#history">Начать с истории</a>
+      </div>
+
+      <!-- Строка с короткими фактами -->
+      <div class="facts">
+        <div><b>0 и 1</b><span>язык компьютера</span></div>
+        <div><b>8 бит</b><span>это 1 байт</span></div>
+        <div><b>1946</b><span>год создания ENIAC</span></div>
+        <div><b>5 млрд+</b><span>пользователей интернета</span></div>
+      </div>
+    </section>
+
+    <!-- ===================== 01 ИСТОРИЯ ===================== -->
+    <section id="history" class="section reveal">
+      <p class="tag">01 · История</p>
+      <h2>История вычислительной техники</h2>
+      <p class="sub">Путь от счётных палочек до смартфона занял несколько тысяч лет.</p>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="year">~ 500 до н. э.</span>
+          <h3>Абак и счёты</h3>
+          <p>Первые устройства для счёта. Считали, передвигая косточки по стержням.</p>
+        </div>
+        <div class="tl-item">
+          <span class="year">1642</span>
+          <h3>Машина Паскаля</h3>
+          <p>Блез Паскаль создал механический «Паскалин», который умел складывать и вычитать.</p>
+        </div>
+        <div class="tl-item">
+          <span class="year">1837</span>
+          <h3>Аналитическая машина</h3>
+          <p>Чарльз Бэббидж придумал машину, управляемую программой. Первой программисткой считают Аду Лавлейс.</p>
+        </div>
+        <div class="tl-item">
+          <span class="year">1946</span>
+          <h3>ENIAC</h3>
+          <p>Одна из первых электронных вычислительных машин. Она занимала целую комнату.</p>
+        </div>
+        <div class="tl-item">
+          <span class="year">1971</span>
+          <h3>Микропроцессор</h3>
+          <p>Intel выпустила процессор 4004: вся логика компьютера на одном маленьком чипе.</p>
+        </div>
+        <div class="tl-item">
+          <span class="year">1991 — сегодня</span>
+          <h3>Интернет и смартфоны</h3>
+          <p>Появилась Всемирная паутина, а мощные компьютеры стали помещаться в карман.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 02 КОМПЬЮТЕР ===================== -->
+    <section id="computer" class="section reveal">
+      <p class="tag">02 · Как это работает</p>
+      <h2>Как устроен компьютер</h2>
+      <p class="sub">Любой компьютер работает по одной схеме: получил данные → обработал → выдал результат.</p>
+
+      <!-- Схема-«пайплайн»: три блока со стрелками -->
+      <div class="pipeline">
+        <div class="pipe-step">ВВОД<small>клавиатура, мышь, микрофон</small></div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step active">ОБРАБОТКА<small>процессор + память</small></div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step">ВЫВОД<small>экран, колонки, принтер</small></div>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <span class="num">01</span>
+          <h3>Процессор (CPU)</h3>
+          <p>«Мозг» компьютера. Выполняет команды программ и делает миллиарды операций в секунду.</p>
+        </article>
+        <article class="card">
+          <span class="num">02</span>
+          <h3>Оперативная память (RAM)</h3>
+          <p>Быстрая, но временная. Хранит то, с чем компьютер работает прямо сейчас. Выключили питание — данные пропали.</p>
+        </article>
+        <article class="card">
+          <span class="num">03</span>
+          <h3>Накопитель (SSD / HDD)</h3>
+          <p>Долговременная память. Здесь лежат файлы, игры и операционная система.</p>
+        </article>
+        <article class="card">
+          <span class="num">04</span>
+          <h3>Видеокарта (GPU)</h3>
+          <p>Рисует изображение на экране. Умеет считать очень много простых задач одновременно.</p>
+        </article>
+        <article class="card">
+          <span class="num">05</span>
+          <h3>Материнская плата</h3>
+          <p>Главная плата, которая соединяет все детали компьютера между собой.</p>
+        </article>
+        <article class="card">
+          <span class="num">06</span>
+          <h3>Операционная система</h3>
+          <p>Программа, управляющая всем «железом»: Windows, macOS, Linux, Android.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== 03 АЛГОРИТМЫ ===================== -->
+    <section id="algorithms" class="section reveal">
+      <p class="tag">03 · Алгоритмы</p>
+      <h2>Алгоритмы</h2>
+      <p class="sub">Алгоритм — это точная пошаговая инструкция для решения задачи. Рецепт маминых блинчиков — тоже алгоритм.</p>
+
+      <div class="cards three">
+        <article class="card">
+          <h3>Свойства алгоритма</h3>
+          <ul class="list">
+            <li><b>Дискретность</b> — разбит на отдельные шаги</li>
+            <li><b>Понятность</b> — исполнитель знает, что делать</li>
+            <li><b>Определённость</b> — шаги не двусмысленны</li>
+            <li><b>Конечность</b> — когда-нибудь заканчивается</li>
+            <li><b>Массовость</b> — решает целый класс задач</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Три базовые конструкции</h3>
+          <ul class="list">
+            <li><b>Следование</b> — шаги один за другим</li>
+            <li><b>Ветвление</b> — если условие верно, делаем одно, иначе другое</li>
+            <li><b>Цикл</b> — повторять, пока выполняется условие</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Способы записи</h3>
+          <ul class="list">
+            <li>Словами (пошаговое описание)</li>
+            <li>Блок-схемой</li>
+            <li>Языком программирования</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Пример кода: поиск максимума -->
+      <div class="code-block">
+        <div class="code-head">пример · поиск наибольшего числа в списке (Python)</div>
+<pre><code><span class="c"># Берём первое число как «пока наибольшее»</span>
+numbers = [4, 17, 9, 25, 3]
+biggest = numbers[0]
+
+<span class="c"># Цикл: проходим по всем числам</span>
+<span class="k">for</span> n <span class="k">in</span> numbers:
+    <span class="c"># Ветвление: если число больше — запоминаем его</span>
+    <span class="k">if</span> n &gt; biggest:
+        biggest = n
+
+print(biggest)   <span class="c"># выведет 25</span></code></pre>
+      </div>
+    </section>
+
+    <!-- ===================== 04 ДВОИЧНАЯ СИСТЕМА + КАЛЬКУЛЯТОР ===================== -->
+    <section id="binary" class="section reveal">
+      <p class="tag">04 · Двоичная Система</p>
+      <h2>Двоичная система и калькулятор</h2>
+      <p class="sub">
+        Компьютер понимает только два состояния: ток есть (<b>1</b>) и тока нет (<b>0</b>).
+        Поэтому все числа, тексты и картинки внутри хранятся двоичным кодом.
+      </p>
+
+      <!-- Короткая теория -->
+      <div class="cards three">
+        <article class="card">
+          <h3>Как читать двоичное число</h3>
+          <p>Каждый разряд — степень двойки: справа налево 1, 2, 4, 8, 16, 32… Складываем те, где стоит единица.</p>
+          <p class="mono-note">1011₂ = 8 + 0 + 2 + 1 = 11₁₀</p>
+        </article>
+        <article class="card">
+          <h3>Перевод в двоичную</h3>
+          <p>Делим число на 2 и записываем остатки. Читаем остатки снизу вверх.</p>
+          <p class="mono-note">13 → 1101₂</p>
+        </article>
+        <article class="card">
+          <h3>Зачем нужен HEX</h3>
+          <p>Шестнадцатеричная система короче: 4 бита = 1 символ (0–9, A–F). Её любят программисты.</p>
+          <p class="mono-note">255 = FF₁₆ = 11111111₂</p>
+        </article>
+      </div>
+
+      <!-- ===== КАЛЬКУЛЯТОР ===== -->
+      <div class="calc">
+
+        <!-- Вкладки калькулятора -->
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-tab="convert" role="tab">Перевод чисел</button>
+          <button class="tab" data-tab="bits" role="tab">8 битов</button>
+          <button class="tab" data-tab="ops" role="tab">Операции</button>
+        </div>
+
+        <!-- Вкладка 1: перевод -->
+        <div class="panel active" id="panel-convert">
+          <div class="grid2">
+            <label class="field">
+              <span>Десятичное</span>
+              <input id="inDec" type="text" inputmode="numeric" placeholder="например, 13" autocomplete="off">
+            </label>
+            <label class="field">
+              <span>Двоичное</span>
+              <input id="inBin" type="text" inputmode="numeric" placeholder="например, 1101" autocomplete="off">
+            </label>
+          </div>
+
+          <p class="error" id="convError" role="alert"></p>
+
+          <div class="results">
+            <div class="res"><span>BIN</span><b id="outBin">—</b></div>
+            <div class="res"><span>DEC</span><b id="outDec">—</b></div>
+            <div class="res"><span>HEX</span><b id="outHex">—</b></div>
+            <div class="res"><span>OCT</span><b id="outOct">—</b></div>
+          </div>
+
+          <h4 class="steps-title">Решение по шагам (деление на 2)</h4>
+          <ol class="steps" id="steps"><li class="muted">Введи число — здесь появится решение.</li></ol>
+        </div>
+
+        <!-- Вкладка 2: 8 переключаемых битов -->
+        <div class="panel" id="panel-bits">
+          <p class="hint">Нажимай на биты, чтобы переключать их между 0 и 1. Под каждым — его «вес».</p>
+          <div class="bits" id="bits"></div>
+          <div class="results">
+            <div class="res"><span>BIN</span><b id="bitsBin">00000000</b></div>
+            <div class="res"><span>DEC</span><b id="bitsDec">0</b></div>
+            <div class="res"><span>HEX</span><b id="bitsHex">00</b></div>
+          </div>
+          <div class="buttons small">
+            <button class="btn" id="bitsReset">Сбросить</button>
+            <button class="btn" id="bitsRandom">Случайное число</button>
+          </div>
+        </div>
+
+        <!-- Вкладка 3: арифметика -->
+        <div class="panel" id="panel-ops">
+          <p class="hint">Введи два двоичных числа и выбери действие.</p>
+          <div class="ops-row">
+            <label class="field">
+              <span>Число A (двоичное)</span>
+              <input id="opA" type="text" inputmode="numeric" placeholder="1010" autocomplete="off">
+            </label>
+            <select id="opSign" aria-label="Операция">
+              <option value="+">+</option>
+              <option value="-">−</option>
+              <option value="*">×</option>
+              <option value="/">÷</option>
+            </select>
+            <label class="field">
+              <span>Число B (двоичное)</span>
+              <input id="opB" type="text" inputmode="numeric" placeholder="11" autocomplete="off">
+            </label>
+          </div>
+          <p class="error" id="opError" role="alert"></p>
+          <div class="results">
+            <div class="res wide"><span>Результат BIN</span><b id="opBin">—</b></div>
+            <div class="res"><span>Результат DEC</span><b id="opDec">—</b></div>
+          </div>
+          <p class="mono-note" id="opCheck"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 05 БЕЗОПАСНОСТЬ ===================== -->
+    <section id="security" class="section reveal">
+      <p class="tag">05 · Безопасность</p>
+      <h2>Безопасность в интернете</h2>
+      <p class="sub">Несколько простых правил защищают аккаунты и деньги.</p>
+
+      <div class="cards">
+        <article class="card">
+          <span class="num">01</span>
+          <h3>Сильные пароли</h3>
+          <p>Длинные (12+ символов), разные для разных сайтов. Не используй дату рождения и «123456».</p>
+        </article>
+        <article class="card">
+          <span class="num">02</span>
+          <h3>Двухфакторная защита</h3>
+          <p>Вход по паролю плюс код из приложения или SMS. Взломать аккаунт становится намного сложнее.</p>
+        </article>
+        <article class="card">
+          <span class="num">03</span>
+          <h3>Фишинг</h3>
+          <p>Поддельные сайты и письма «от банка» крадут пароли. Проверяй адрес сайта и не переходи по подозрительным ссылкам.</p>
+        </article>
+        <article class="card">
+          <span class="num">04</span>
+          <h3>Обновления и антивирус</h3>
+          <p>Обновления закрывают найденные дыры. Устанавливай программы только из надёжных источников.</p>
+        </article>
+        <article class="card">
+          <span class="num">05</span>
+          <h3>Личные данные</h3>
+          <p>Не публикуй адрес, номер телефона и фото документов. Всё, что попало в сеть, сложно удалить.</p>
+        </article>
+        <article class="card">
+          <span class="num">06</span>
+          <h3>Резервные копии</h3>
+          <p>Важные файлы храни ещё в одном месте: на флешке или в облаке.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== 06 ТЕСТ ===================== -->
+    <section id="quiz" class="section reveal">
+      <p class="tag">06 · Тест</p>
+      <h2>Проверь себя</h2>
+      <p class="sub">Пять вопросов по всему, что было на сайте.</p>
+
+      <div class="quiz" id="quiz">
+        <div class="quiz-top">
+          <span id="quizCount">Вопрос 1 из 5</span>
+          <div class="bar"><div id="quizBar"></div></div>
+        </div>
+        <h3 id="quizQuestion"></h3>
+        <div class="answers" id="quizAnswers"></div>
+        <p class="explain" id="quizExplain"></p>
+        <button class="btn primary" id="quizNext" hidden>Дальше →</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== ПОДВАЛ ===================== -->
+  <footer class="footer">
+    <p class="logo">1<span>м</span>5</p>
+    <!-- ФИО автора проекта -->
+    <p class="author"><b>Vazirkhanov Arslan</b></p>
+    <a href="#top">Наверх ↑</a>
+  </footer>
+
+  <!-- Подключаем скрипт в конце, чтобы страница уже была загружена -->
+  <script src="script.js"></script>
+</body>
+</html>
